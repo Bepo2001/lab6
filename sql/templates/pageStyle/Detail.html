@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html> 
+<html lang="en">
+  <head> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/add.css' %}">
+</head>
+
+  <body>
+    <div class="fa">
+      <h3>Student: {{student}}</h3>
+
+      <form method="POST" >
+        {% csrf_token %}
+        <label for="course">Add Course:</label>
+        <select name="course" id="course">
+        {% for course in not_registered_courses %}
+            <option value="{{ course.courseID }}">{{ course.courseID }}</option>
+        {% endfor %}
+        </select>
+        <input type="submit" value="Add">
+          </form>
+
+          <p>student ID: {{student.studentID}}</p>
+          <p>student GPA: {{student.studentGPA}}</p>
+          <p>student Year of birth: {{student.studentYear}}</p>
+          
+      <br>
+      <p>Courses:</p>
+      <ul>
+        {% for xx in course %}
+          <li>{{xx}}</li>
+        {% endfor %}
+      </ul>
+      <br>
+      <a href="{% url 'sql:courses' %}">Add a new Person</a>
+
+
+  </div>
+  </body>
+ <html>

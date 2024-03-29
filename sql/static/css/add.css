@@ -1,0 +1,9 @@
+.fa {
+    background-color: #9e0d0d;
+    padding: 8px 24px;
+    width: 750px;
+    font-size: 25px;
+    border: 1px solid #9e0d0d;
+    box-shadow: 0 0 10px 2px #333333;
+    margin: auto;
+}

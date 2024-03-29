@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html> 
+<html lang="en">
+  <head> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/add.css' %}">
+</head>
+
+  <body>
+    <div class="fa">
+      <h1>Add new Student:</h1>
+      <form action="{% url 'sql:students' %}" method="post">
+        {% csrf_token %}
+        {{ form}}
+        <button type="submit">Submit</button>
+      </form>
+      <br>
+      <ul>
+        {% for x in students %}
+          <li><a href="{% url 'sql:details'  x.studentID%}">{{x}}</a></li>
+        {% endfor %}
+      </ul>
+      <a href="{% url 'sql:courses' %}">see courses</a>
+
+    </div>
+  </body>
+ <html>
